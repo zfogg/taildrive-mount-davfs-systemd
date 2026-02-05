@@ -1,0 +1,10 @@
+[Unit]
+Description=Check WebDAV mount status every 2 seconds
+
+[Timer]
+OnBootSec=1s
+OnUnitActiveSec=2s
+Persistent=true
+
+[Install]
+WantedBy=timers.target

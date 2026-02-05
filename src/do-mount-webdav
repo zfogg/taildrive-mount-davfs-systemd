@@ -1,0 +1,8 @@
+#!/bin/sh
+rm -f /var/run/mount.davfs/*.pid
+# Create temp config with empty credentials
+mkdir -p ~/.davfs2
+echo "http://100.100.100.100:8080 /mnt/tailscale" >> /tmp/davfs-mount-$$.conf
+# Try using the direct mount without prompts
+/usr/bin/mount -t davfs -o allow_other http://100.100.100.100:8080 /mnt/tailscale 2>/dev/null &
+rm -f /tmp/davfs-mount-$$.conf

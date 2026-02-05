@@ -1,0 +1,6 @@
+[Unit]
+Description=Ensure WebDAV mount follows Tailscale status
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/ensure-webdav-mounted

@@ -1,0 +1,17 @@
+#!/bin/sh
+{
+  echo "[$(date)] Check starting"
+  if timeout 2 pgrep -f "tailscaled --state" >/dev/null 2>&1; then
+    echo "[$(date)] Tailscale found"
+    if ! timeout 2 mountpoint -q /mnt/tailscale 2>/dev/null; then
+      echo "[$(date)] Not mounted, attempting mount"
+      /usr/local/bin/do-mount-webdav
+      echo "[$(date)] Mount attempt completed"
+    else
+      echo "[$(date)] Already mounted"
+    fi
+  else
+    echo "[$(date)] Tailscale not running"
+  fi
+} >> /tmp/ensure-webdav.log 2>&1
+exit 0
