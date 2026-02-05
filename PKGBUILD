@@ -14,12 +14,12 @@ package() {
     cd "${srcdir}/${pkgname}"
 
     # Install scripts
-    install -Dm755 src/do-mount-webdav "${pkgdir}/usr/local/bin/do-mount-webdav"
-    install -Dm755 src/ensure-webdav-mounted "${pkgdir}/usr/local/bin/ensure-webdav-mounted"
+    install -Dm755 src/do-mount-webdav "${pkgdir}/usr/bin/do-mount-webdav"
+    install -Dm755 src/ensure-webdav-mounted "${pkgdir}/usr/bin/ensure-webdav-mounted"
 
     # Install systemd units
-    install -Dm644 systemd/ensure-webdav-mounted.service "${pkgdir}/etc/systemd/system/ensure-webdav-mounted.service"
-    install -Dm644 systemd/ensure-webdav-mounted.timer "${pkgdir}/etc/systemd/system/ensure-webdav-mounted.timer"
+    install -Dm644 systemd/ensure-webdav-mounted.service "${pkgdir}/usr/lib/systemd/system/ensure-webdav-mounted.service"
+    install -Dm644 systemd/ensure-webdav-mounted.timer "${pkgdir}/usr/lib/systemd/system/ensure-webdav-mounted.timer"
     install -Dm644 systemd/tailscaled-unmount-webdav.conf "${pkgdir}/etc/systemd/system/tailscaled.service.d/unmount-webdav.conf"
 
     # Install documentation
