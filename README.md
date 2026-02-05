@@ -11,16 +11,11 @@ Automatically mount a WebDAV share when Tailscale is running, and unmount it whe
 
 ## Installation
 
-### Using AUR (Recommended)
-```bash
-paru -S taildrive-mount-davfs-systemd
-```
-
-### Manual Installation
+### From Source
 ```bash
 git clone https://github.com/zfogg/taildrive-mount-davfs-systemd
 cd taildrive-mount-davfs-systemd
-sudo make install
+makepkg -si
 ```
 
 ## Configuration
