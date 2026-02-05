@@ -1,5 +1,6 @@
 #!/bin/sh
 rm -f /var/run/mount.davfs/*.pid
+mkdir -p /mnt/tailscale
 # Create temp config with empty credentials
 mkdir -p ~/.davfs2
 echo "http://100.100.100.100:8080 /mnt/tailscale" >> /tmp/davfs-mount-$$.conf
