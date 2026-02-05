@@ -7,7 +7,7 @@ arch=('any')
 url="https://github.com/zfogg/taildrive-mount-davfs-systemd"
 license=('MIT')
 depends=('tailscale' 'davfs2' 'systemd')
-source=("${pkgname}::git+file:///home/zfogg/src/github.com/zfogg/${pkgname}")
+source=("git+${url}.git")
 sha256sums=('SKIP')
 
 package() {
@@ -31,9 +31,9 @@ post_install() {
     echo "    sudo systemctl enable ensure-webdav-mounted.timer"
     echo "    sudo systemctl start ensure-webdav-mounted.timer"
     echo ""
-    echo "==> Edit the following files to customize:"
-    echo "    /usr/local/bin/do-mount-webdav - WebDAV URL and mount point"
-    echo "    /etc/systemd/system/ensure-webdav-mounted.timer - Check interval"
+    echo "==> To customize, edit:"
+    echo "    /usr/bin/do-mount-webdav - WebDAV URL and mount point"
+    echo "    /usr/lib/systemd/system/ensure-webdav-mounted.timer - Check interval"
 }
 
 post_upgrade() {

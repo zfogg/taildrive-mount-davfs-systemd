@@ -20,10 +20,10 @@ makepkg -si
 
 ## Configuration
 
-Edit the following files to customize:
+After installation, edit to customize:
 
-- `src/do-mount-webdav` - WebDAV mount URL and point
-- `systemd/ensure-webdav-mounted.timer` - Check interval (default: 2 seconds)
+- `/usr/bin/do-mount-webdav` - WebDAV mount URL and mount point
+- `/usr/lib/systemd/system/ensure-webdav-mounted.timer` - Check interval (default: 2 seconds)
 
 Default configuration:
 - **WebDAV URL**: `http://100.100.100.100:8080`
